@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Portofolio Siswa - Jeremia</title>
+  <title>Portofolio Siswa - Jeremia </title>
   <style>
     body {
       background-color: #e0f2f1;
       padding: 40px;
       text-align: center;
+      font-family: Arial, sans-serif;
     }
 
     .container {
@@ -93,42 +94,50 @@
       {
         title: "1. Website Biodata Diri",
         img: "tumbnail.png",
-        desc: "Menampilkan informasi pribadi seperti nama, hobi, dan cita-cita dengan HTML & CSS dasar."
+        desc: "Menampilkan informasi pribadi seperti nama, hobi, dan cita-cita dengan HTML & CSS dasar.",
+        link: "biodata.html"
       },
       {
         title: "2. Website Kartu Informasi",
         img: "https://via.placeholder.com/800x300?text=Kartu+Informasi",
-        desc: "Desain kartu nama atau kartu identitas menggunakan HTML dan CSS dengan layout menarik."
+        desc: "Desain kartu nama atau kartu identitas menggunakan HTML dan CSS dengan layout menarik.",
+        link: "#"
       },
       {
         title: "3. Website Resep Makanan",
         img: "https://via.placeholder.com/800x300?text=Resep+Makanan",
-        desc: "Berisi resep masakan favorit dengan daftar bahan, langkah-langkah, dan gambar hidangan."
+        desc: "Berisi resep masakan favorit dengan daftar bahan, langkah-langkah, dan gambar hidangan.",
+        link: "menu.html"
       },
       {
         title: "4. Website Kartu Undangan",
         img: "https://via.placeholder.com/800x300?text=Kartu+Undangan",
-        desc: "Membuat undangan digital seperti ulang tahun, pernikahan, atau acara sekolah."
+        desc: "Membuat undangan digital seperti ulang tahun, pernikahan, atau acara sekolah.",
+        link: "#"
       },
       {
         title: "5. Website Formulir",
         img: "https://via.placeholder.com/800x300?text=Formulir+Online",
-        desc: "Formulir pendaftaran online dengan elemen input, radio, checkbox, dan tombol kirim."
+        desc: "Formulir pendaftaran online dengan elemen input, radio, checkbox, dan tombol kirim.",
+        link: "#"
       },
       {
         title: "6. Website Jadwal Pelajaran",
         img: "https://via.placeholder.com/800x300?text=Jadwal+Pelajaran",
-        desc: "Tabel interaktif berisi jadwal pelajaran mingguan dengan tampilan rapi dan warna-warna menarik."
+        desc: "Tabel interaktif berisi jadwal pelajaran mingguan dengan tampilan rapi dan warna-warna menarik.",
+        link: "#"
       },
       {
         title: "7. Website Project Akhir",
         img: "https://via.placeholder.com/800x300?text=Project+Akhir",
-        desc: "Gabungan seluruh materi HTML & CSS dalam satu proyek kreatif sebagai ujian praktik akhir semester."
+        desc: "Gabungan seluruh materi HTML & CSS dalam satu proyek kreatif sebagai ujian praktik akhir semester.",
+        link: "#"
       },
       {
         title: "8. Website Ujian Praktek",
         img: "https://via.placeholder.com/800x300?text=Ujian+Praktek",
-        desc: "Website hasil ujian praktek informatika sebagai penilaian akhir dari pembelajaran HTML dan CSS."
+        desc: "Website hasil ujian praktek informatika sebagai penilaian akhir dari pembelajaran HTML dan CSS.",
+        link: "#"
       }
     ];
 
@@ -136,14 +145,14 @@
 
     function renderProjects(filteredProjects = projects) {
       container.innerHTML = ""; // kosongkan
-      filteredProjects.forEach((project, index) => {
+      filteredProjects.forEach((project) => {
         const div = document.createElement('div');
         div.className = 'project';
         div.innerHTML = `
           <h3>${project.title}</h3>
           <img src="${project.img}" alt="${project.title}">
           <p>${project.desc}</p>
-          <a href="#" class="btn">Lihat Proyek</a>
+          <a href="${project.link}" class="btn">Lihat Proyek</a>
           <button class="toggle-btn" onclick="toggleProject(this)">Sembunyikan</button>
         `;
         container.appendChild(div);
@@ -182,3 +191,4 @@
   </script>
 </body>
 </html>
+  
