@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kartu Fakta Menarik — Jeremia</title>
+  <style>
+    body{background-color:darkorange;}
+    img.a{width: 450px; height: 300px;box-shadow: 10px 10px 5px cornflowerblue;border-radius: 10%;}
+    div.card-fakta
+    {width: 800px;
+        height: 750px;
+        background-image:url("marble.jpg");
+        text-align:center;
+        border-radius: 10%;
+        transition: opacity 0.5s ease;
+}
+
+    div.card-footer{color: aliceblue;}
+    li{color:aliceblue; font-family:"a";}
+
+    @font-face {
+        font-family:"a";
+        src: url(LightRock.ttf);
+    }
+
+    h1{color:darkgray; font-family: "a";}
+    h2{color:darkgray;}
+   
+    .btn-next {
+            padding: 16px 32px;
+            background-color: #3b82f6;
+            color: white;
+            font-weight: 600;
+            font-size: 10;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: 300ms ease-out;
+        }
+        .btn-next:hover {
+    
+            transform: scale(1.1); 
+            background-color: #2563eb;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .fade-out {
+        opacity: 0;
+      }
+
+  </style>
+</head>
+<body>
+    <body style="background-image: url(bg1.jpg)">
+        <center>
+  <div class="card-fakta">
+    <br>
+    <h1>Fakta Menarik tentang hal hal random ini</h1>
+    <img id="factImage" src="BB1pJXnA.jpg"class="a" />
+    <div class="content">
+      <h2 class="subtitle">Tahukah kamu fakta-fakta unik ini?</h2>
+      
+      <ul class="facts-list" id="factList">
+        <li>Dachshund dijuluki “anjing sosis” karena tubuhnya panjang dan kaki pendek.</li>
+        <li>Dachshund bernama Waldi adalah maskot pertama dari olimpiade olahraga dunia pada tahun 1972 .</li>
+        <li>Aktif dan suka bermain, tapi rawan obesitas jika kurang olahraga.</li>
+        <li>Rentan masalah tulang punggung (IVDD) karena bentuk tubuhnya.</li>
+      </ul>
+    
+
+      <button class="btn-next" id="nextFact"> Fakta Selanjutnya</button>
+
+
+      <div class="card-footer">© 2025 | Fakta-fakta menarik tentang • Jeremia Alexandriano</div>
+    </div>
+  </div>
+ 
+  <script>
+    
+    const factData = [
+      {
+        image: "88.jpg",
+        facts: [
+          "Rekrutmen dan pelatihan Densus 88 dilakukan secara rahasia dan selektif.",
+          "Angka “88” dalam densus 88 diambil dari jumlah korban warga Australia dalam tragedi Bom Bali 1.",
+          "Didirikan pada tahun 2003, setelah peristiwa Bom Bali yang pertama pada tahun 2002.",
+          "Densus 88 juga memiliki unit negosiasi dan forensik digital untuk melacak aktivitas teror online."
+         
+        ]
+      },
+      {
+        image: "hard rock.jpg",
+        facts: [
+          "Moto Hard Rock adalah “Love All, Serve All” dan “Take Time to Be Kind.”Filosofi ini menekankan kesetaraan, pelayanan dengan hati, dan cinta terhadap musik serta komunitas.",
+          "Banyak musisi legendaris seperti Queen dan The Rolling Stones pernah mampir atau tampil di Hard Rock Cafe.",
+          "Logo bulat dengan tulisan “Hard Rock Cafe” diciptakan pada tahun 1971 dan tetap tak berubah selama lebih dari 50 tahun.",
+          "Hard Rock dikenal dengan *oleksi memorabilia musik legendaris seperti gitar milik Jimi Hendrix, tersebar di seluruh dunia"
+        ]
+      },
+      {
+        image: "marcel.jpg",
+        facts: [
+          "Dalam komik pertama tahun 1962, Hulk berwarna abu-abu. Tapi karena masalah pencetakan, warnanya sering berubah-ubah — akhirnya diputuskan menjadi hijau.",
+          "Nama Marvel Comics mulai resmi digunakan pada 1961, ketika Stan Lee dan Jack Kirby meluncurkan Fantastic Four #1.",
+          "Film pertama Marvel adalah Howard the Duck (1986), tapi kejayaan sesungguhnya datang setelah Iron Man (2008).",
+          "Awalnya, penerbit menolak ide Spider-Man karena menganggap “remaja dengan masalah pribadi dan kekuatan laba-laba” tidak menarik."
+        ]
+      },
+      {
+        image: "sz.jpg",
+        facts: [
+          "Awalnya istilah “R&B” digunakan untuk menggantikan istilah lama “race music”, yang dulu dipakai untuk musik kulit hitam.",
+          "R&B muncul pada 1940-an di Amerika Serikat, berasal dari gabungan jazz, blues, dan gospel.",
+          "R&B masa kini sering disebut“Contemporary R&B”, dipopulerkan oleh Beyoncé, The Weeknd, SZA, dan Chris Brown.",
+          "R&B klasik menonjolkan ritme kuat, vokal penuh emosi, dan lirik cinta atau kehidupan sehari-hari."
+        ]
+      }
+    ];
+
+
+    const factList = document.getElementById("factList");
+    const factImage = document.getElementById("factImage");
+    const nextBtn = document.getElementById("nextFact");
+
+
+    nextBtn.addEventListener("click", () => {
+      factList.classList.add("fade-out");
+      setTimeout(() => {
+        const randomFact = factData[Math.floor(Math.random() * factData.length)];
+        factImage.style.opacity = 0;
+
+
+        setTimeout(() => {
+          factImage.src = randomFact.image;
+          factImage.style.opacity = 1;
+        }, 400);
+
+
+        factList.innerHTML = randomFact.facts.map(f => `<li>${f}</li>`).join("");
+        factList.classList.remove("fade-out");
+      }, 500);
+    });
+  </script>
+</center>
+</body>
+</html>

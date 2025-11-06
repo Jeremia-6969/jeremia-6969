@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kartu Fakta Menarik — Teknologi</title>
+  <style>
+.card-fakta {
+      background-color: #e0f2f1;
+      padding: 40px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      border-radius: 10%;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .project {
+      margin: 30px 0;
+      padding: 20px;
+      background: #f9f9f9;
+      border-left: 5px solid #4db6ac;
+      text-align: left;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .a {
+      max-width: 50%;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    .btn, .toggle-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #4db6ac;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover, .toggle-btn:hover {
+      background-color: #00897b;
+      transform: scale(1.05);
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<center>  
+    <div class="card-fakta">
+    <img id="factImage" src="BB1pJXnA.jpg" alt="Ilustrasi teknologi modern" class="a" />
+    <div class="content">
+      <h2>Fakta Menarik tentang Teknologi</h2>
+      <p class="subtitle">Tahukah kamu fakta-fakta unik ini?</p>
+
+
+      <ul class="facts-list" id="factList">
+        <li>Dachshunds were associated with Germany during World War I because they were used in a lot of propaganda, and Kaiser Wilhelm II had a well-known love for Dachshunds. This association led to a decline in the breed’s popularity in America. To counteract this effect, the AKC tried rebranding Dachshunds as “badger dogs,” among other names, but that didn’t stick.</li>
+        <li>Setiap 2 detik, ada lebih dari 100.000 pencarian baru di Google di seluruh dunia.</li>
+        <li>iPhone pertama kali diluncurkan pada tahun 2007 dan mengubah cara orang berinteraksi dengan teknologi seluler.</li>
+        <li>AI kini membantu dokter mendiagnosis penyakit lebih cepat dan akurat.</li>
+      </ul>
+
+
+      <button class="btn-next" id="nextFact">🔁 Fakta Selanjutnya</button>
+
+
+      <div class="card-footer">© 2025 | Fakta Teknologi • Informatika SMP</div>
+    </div>
+  </div>
+</center>
+  
+
+  <script>
+    const factData = [
+      {
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
+        facts: [
+          "Robot kini dapat meniru ekspresi wajah manusia dengan sangat realistis.",
+          "Beberapa mobil listrik modern bisa memperbarui sistemnya lewat internet, seperti HP!",
+          "Dunia memiliki lebih dari 6 miliar ponsel aktif setiap harinya."
+         
+        ]
+      },
+      {
+        image: "https://images.unsplash.com/photo-1581093588401-22c38b3036d7?q=80&w=800&auto=format&fit=crop",
+        facts: [
+          "Internet pertama kali dibuat untuk menghubungkan universitas di AS pada tahun 1969.",
+          "Email pertama dikirim lebih dari 50 tahun yang lalu!",
+          "Sekitar 90% data dunia diciptakan dalam dua tahun terakhir."
+        ]
+      },
+      {
+        image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop",
+        facts: [
+          "AI digunakan untuk menciptakan musik dan lukisan digital.",
+          "Superkomputer modern dapat melakukan triliunan perhitungan per detik.",
+          "VR (Virtual Reality) digunakan untuk melatih dokter dan pilot pesawat."
+        ]
+      },
+      {
+        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
+        facts: [
+          "Teknologi cloud memungkinkan kita menyimpan file tanpa harddisk fisik.",
+          "Bahasa pemrograman pertama dibuat pada tahun 1950-an.",
+          "AI generatif dapat membantu membuat karya seni digital dan video."
+        ]
+      }
+    ];
+
+
+    const factList = document.getElementById("factList");
+    const factImage = document.getElementById("factImage");
+    const nextBtn = document.getElementById("nextFact");
+
+
+    nextBtn.addEventListener("click", () => {
+      factList.classList.add("fade-out");
+      setTimeout(() => {
+        const randomFact = factData[Math.floor(Math.random() * factData.length)];
+        factImage.style.opacity = 0;
+
+
+        setTimeout(() => {
+          factImage.src = randomFact.image;
+          factImage.style.opacity = 1;
+        }, 400);
+
+
+        factList.innerHTML = randomFact.facts.map(f => `<li>${f}</li>`).join("");
+        factList.classList.remove("fade-out");
+      }, 500);
+    });
+  </script>
+
+
+</body>
+</html>
+
+
